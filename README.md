@@ -2,6 +2,13 @@
 
 Here I will complete tutorials about creation of REST API on flask and django.
 
+# Prerequisites
+
+- Python3.12
+- Docker engine v???
+- Docker compose v???
+- flask v???
+
 # Tutotrial convention
 
 - Namming convention.
