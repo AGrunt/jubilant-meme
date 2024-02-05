@@ -18,6 +18,7 @@ class Drink(db.Model):
 def index():
     return render_template('home.html', drinks=len(Drink.query.all()))
 
+
 @app.route('/drinks')
 def get_drinks():
     drinks = Drink.query.all()

@@ -1,9 +1,7 @@
 from flask import Flask, request
-from flask_sqlalchemy import SQLAlchemy
+#from flask_sqlalchemydb import SQLAlchemy
 app = Flask(__name__)
 app.debug = True
-from flask_sqlalchemy import SQLAlchemy
-
 
 import sqlite3
 
@@ -54,3 +52,4 @@ def delete_drink():
         return {'error': 'not found'}
     db.session.delete(drink)
     db.session.commit()
+    return {'message': 'Delete complete successful'}
