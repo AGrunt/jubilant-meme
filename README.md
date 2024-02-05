@@ -34,5 +34,5 @@ $ python
 > app.app_context().push()
 > db.create_all()
 
-flask -e flask_sqlalchemy_vars run
+> flask -e flask_sqlalchemy_vars run
 
