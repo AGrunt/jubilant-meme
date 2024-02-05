@@ -25,11 +25,14 @@ Tutorial repository name generated with leadin "tutorial_" string with following
 ## How to run
 
 To run the code, in the terminal run:  
-```flask -e env_variables run```
+flask -e flask_sqlalchemy_vars run
 
 ## NOTES
 
 $ python
->>> from project import app, db
->>> app.app_context().push()
->>> db.create_all()
+> from project import app, db
+> app.app_context().push()
+> db.create_all()
+
+flask -e flask_sqlalchemy_vars run
+

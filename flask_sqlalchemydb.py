@@ -1,11 +1,7 @@
-from flask import Flask, request
+from flask import Flask, request, render_template
 from flask_sqlalchemy import SQLAlchemy
 app = Flask(__name__)
 app.debug = True
-
-
-import sqlite3
-
 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///data.db' #Making a configuration for holding actual database
 db = SQLAlchemy(app) # Making an instance
@@ -20,7 +16,7 @@ class Drink(db.Model):
 
 @app.route('/')
 def index():
-    return 'Hello'
+    return render_template('home.html', drinks=len(Drink.query.all()))
 
 @app.route('/drinks')
 def get_drinks():
