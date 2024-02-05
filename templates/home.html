@@ -34,8 +34,16 @@ fetch("http://127.0.0.1:5000/drinks", {
 <body>
 
 <h1>Flask API</h1>
+<hr>
 <h2>We have drinks!</h2>
+
 <div>We have {{ drinks }} drinks.</div>
+
+To get JSON of drinks, press "Show what you got" button.<br />
+
+<button onclick="deleteDrink()" width="30" style="margin-top: 20px;">Show what you got</button>
+
+<hr>
 
 <h2>Add drinks here</h2>
 <div>For adding a drink fill "name" and "description" input fields and press "Add drink" button.</div>
@@ -46,12 +54,16 @@ Enter Description: <br />
 <input type="text" width="20" name="description" id="description" required pattern="\S+" style="margin-bottom: 5px;"><br />
 <button onclick="addDrink()" width="30">Add drink</button>
 
+<hr>
 
 <h2>Delete drinks here</h2>
 <div>For deleting drink enter drink ID and press "Delete drink" button.</div>
 Enter ID:<br />
 <input type="text" width="20" name="id" id="id" required pattern="\S+" style="margin-bottom: 5px;"><br />
 <button onclick="deleteDrink()" width="30">Delete drink</button>
+<br />
+<hr>
+
 
 </body>
 </html>
