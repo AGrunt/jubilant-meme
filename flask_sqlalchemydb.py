@@ -1,11 +1,7 @@
 from flask import Flask, request
-from flask_sqlalchemy import SQLAlchemy
 app = Flask(__name__)
 app.debug = True
-
-
-import sqlite3
-
+from flask_sqlalchemy import SQLAlchemy
 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///data.db' #Making a configuration for holding actual database
 db = SQLAlchemy(app) # Making an instance
