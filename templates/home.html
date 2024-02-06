@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <script>
 function addDrink(){
-fetch("http://127.0.0.1:5000/drinks", {
+fetch("/drinks", {
   method: "POST",
   body: JSON.stringify({
     "name": document.getElementById("name").value,
-    "description": document.getElementById("name").value
+    "description": document.getElementById("description").value
   }),
   headers: {
     "Content-type": "application/json; charset=UTF-8"
@@ -16,11 +16,9 @@ fetch("http://127.0.0.1:5000/drinks", {
 }
 
 function deleteDrink(){
-fetch("http://127.0.0.1:5000/drinks", {
+fetch(`/drinks/${document.getElementById("id").value}`, {
   method: "DELETE",
-  body: JSON.stringify({
-    "id": document.getElementById("id").value
-  }),
+  body: JSON.stringify({}),
   headers: {
     "Content-type": "application/json; charset=UTF-8"
   }
@@ -39,25 +37,23 @@ fetch("http://127.0.0.1:5000/drinks", {
 
 <div>We have {{ drinks }} drinks.</div>
 
-To get JSON of drinks, press "Show what you got" button.<br />
-
-<button onclick="deleteDrink()" width="30" style="margin-top: 20px;">Show what you got</button>
+<a href="/drinks">Drinks are here</a><br />
 
 <hr>
 
 <h2>Add drinks here</h2>
 <div>For adding a drink fill "name" and "description" input fields and press "Add drink" button.</div>
 
-Enter name:<br />
+Enter drink name:<br />
 <input type="text" width="20" content="asd" name="name" id="name" required pattern="\S+" style="margin-bottom: 5px;"><br />
-Enter Description: <br />
+Enter drink description: <br />
 <input type="text" width="20" name="description" id="description" required pattern="\S+" style="margin-bottom: 5px;"><br />
 <button onclick="addDrink()" width="30">Add drink</button>
 
 <hr>
 
 <h2>Delete drinks here</h2>
-<div>For deleting drink enter drink ID and press "Delete drink" button.</div>
+<div>For deleting a drink please enter drink ID and press "Delete drink" button.</div>
 Enter ID:<br />
 <input type="text" width="20" name="id" id="id" required pattern="\S+" style="margin-bottom: 5px;"><br />
 <button onclick="deleteDrink()" width="30">Delete drink</button>
