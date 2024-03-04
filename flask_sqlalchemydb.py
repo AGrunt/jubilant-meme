@@ -18,23 +18,23 @@ class Drink(db.Model):
 def index():
     return render_template('home.html', drinks=len(Drink.query.all()))
 
-
+#Getting drinks
 @app.route('/drinks')
 def get_drinks():
     drinks = Drink.query.all()
-    #print(drinks) 
     output = []
     for drink in drinks:
         drink_data = {'name': drink.name, 'description': drink.description} 
-        #print(drink_data)
         output.append(drink_data)
     return {'drinks': output}
 
+#Getting specific drink by <id>
 @app.route('/drinks/<id>')
 def get_drink(id):
     drink = Drink.query.get_or_404(id)
     return {'name': drink.name, 'description': drink.description}
 
+#Inserting a drink
 @app.route('/drinks', methods=['POST'])
 def add_drink():
     drink= Drink(name=request.json['name'], description=request.json['description'])
@@ -42,9 +42,9 @@ def add_drink():
     db.session.commit()
     return {'id': drink.id}
 
-
+#Deleting a drink
 @app.route('/drinks/<id>', methods=['DELETE'])
-def delete_drink(id):
+def delete_drink():
     drink = Drink.query.get(id)
     if drink is None:
         return {'error': 'not found'}
